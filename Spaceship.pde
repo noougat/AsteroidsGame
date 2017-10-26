@@ -7,6 +7,8 @@ class Spaceship extends Floater
     xCorners = xS;
     yCorners = yS;
     myColor = 255;
+    myCenterX = 50;
+    myCenterY = 50;
   }
     public void setX(int x) { myCenterX = x;};  
     public int getX() { return (int)myCenterX; };   
