@@ -12,10 +12,10 @@ public void setup()
 public void draw() 
 {
   background(0);
-  no.show();
-  no.move();
   for ( int i = 0; i < star.length; i++)
   star[i].show();
+  no.show();
+  no.move();
 }
 public void keyPressed()
 {

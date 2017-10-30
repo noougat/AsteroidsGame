@@ -6,7 +6,7 @@ class Spaceship extends Floater
     int[] yS = {-5 - 2, -3- 2, -3- 2, 1- 2, 1- 2, 3- 2, 3- 2, 5- 2, 5- 2, 9- 2, 9- 2, 11- 2, 11- 2, 13- 2, 13- 2, 11- 2, 11- 2, 13- 2, 13- 2, 9- 2, 9- 2, 7- 2, 7- 2, 3- 2, 3- 2,5- 2, 5- 2, 1- 2, 1- 2, -3- 2,-3 - 2,-5 - 2};
     xCorners = xS;
     yCorners = yS;
-    myColor = 255;
+    myColor = color(112,193,101);
     myCenterX = 50;
     myCenterY = 50;
   }
