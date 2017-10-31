@@ -1,7 +1,6 @@
 //your variable declarations here
 Floater no = new Spaceship();
 Stars[] star = new Stars[200];
-public int dir = 0;
 public void setup() 
 {
   background(0);
