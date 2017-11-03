@@ -1,18 +1,25 @@
 //your variable declarations here
 Floater no = new Spaceship();
 Stars[] star = new Stars[200];
+Asteroid[] asteroids = new Asteroid[10];
 public void setup() 
 {
   background(0);
   size(500, 500);
   for ( int i = 0; i < star.length; i++)
-  star[i] = new Stars();
+    star[i] = new Stars();
+  for ( int i = 0; i < asteroids.length; i++)
+    asteroids[i] = new Asteroid();
 }
 public void draw() 
 {
   background(0);
   for ( int i = 0; i < star.length; i++)
-  star[i].show();
+    star[i].show();
+  for ( int i = 0; i < asteroids.length; i++) 
+      asteroids[i].show();
+    for ( int i = 0; i < asteroids.length; i++) 
+      asteroids[i].move();
   no.show();
   no.move();
 }
@@ -28,14 +35,14 @@ public void keyPressed()
   }
   if (key == 'w')
   {
-  no.accelerate(0.5);
+    no.accelerate(0.5);
   }
   if (key == 'a')
   {
-  no.turn(-10);
+    no.turn(-10);
   }
-    if (key == 'd')
+  if (key == 'd')
   {
-  no.turn(10);
+    no.turn(10);
   }
 }
