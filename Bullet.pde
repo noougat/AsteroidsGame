@@ -13,7 +13,9 @@ class Bullet extends Floater
   {
     noStroke();
     fill(252,218, 143);
-    rect((float)myCenterX,(float)myCenterY,2,2);
+    rect((float)myCenterX+5,(float)myCenterY-10,10,10);
+    fill(255,250, 155);
+    rect((float)myCenterX+7,(float)myCenterY-8,6,6);
   }
     public void setX(int x) { myCenterX = x;};  
     public int getX() { return (int)myCenterX; };   

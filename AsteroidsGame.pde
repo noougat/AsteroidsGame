@@ -1,6 +1,7 @@
 //your variable declarations here
-Floater no = new Spaceship();
+Spaceship no = new Spaceship();
 Stars[] star = new Stars[200];
+ArrayList <Bullet> pew = new ArrayList <Bullet>();
 ArrayList <Asteroid> asteroids = new ArrayList <Asteroid>();
 public void setup() 
 {
@@ -19,6 +20,11 @@ public void draw()
   background(0);
   for ( int i = 0; i < star.length; i++)
     star[i].show();
+  for ( int i = 0; i < pew.size(); i++) 
+  {
+      pew.get(i).show();
+      pew.get(i).move();
+  }
   no.show();
   no.move();
   for ( int i = 0; i < asteroids.size(); i++) 
@@ -54,5 +60,9 @@ public void keyPressed()
   if (key == 'd')
   {
     no.turn(10);
+  }
+  if (key == ' ')
+  {
+    pew.add(new Bullet(no));
   }
 }
