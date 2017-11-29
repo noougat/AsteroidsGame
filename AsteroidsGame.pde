@@ -9,11 +9,10 @@ public void setup()
   size(500, 500);
   for ( int i = 0; i < star.length; i++)
     star[i] = new Stars();
-for ( int i = 0; i < 15 ; i++ )
-{
-  asteroids.add(new Asteroid());
-}
-
+  for ( int i = 0; i < 15; i++ )
+  {
+    asteroids.add(new Asteroid());
+  }
 }
 public void draw() 
 {
@@ -22,17 +21,26 @@ public void draw()
     star[i].show();
   for ( int i = 0; i < pew.size(); i++) 
   {
-      pew.get(i).show();
-      pew.get(i).move();
+    pew.get(i).show();
+    pew.get(i).move();
   }
   no.show();
   no.move();
   for ( int i = 0; i < asteroids.size(); i++) 
   {
-      asteroids.get(i).show();
-      asteroids.get(i).move();
-      if (dist(asteroids.get(i).getX(),asteroids.get(i).getY(),no.getX(),no.getY()) < 20)
+    asteroids.get(i).show();
+    asteroids.get(i).move();
+    if (dist(asteroids.get(i).getX(), asteroids.get(i).getY(), no.getX(), no.getY()) < 20)
+    asteroids.remove(i);
+    for( int j = 0; j < pew.size(); j++)
+    {
+      if (dist(pew.get(j).getX(), pew.get(j).getY(), asteroids.get(i).getX(), asteroids.get(i).getY())< 30)
+      {
       asteroids.remove(i);
+      pew.remove(j);
+      break;
+      }
+    }
   }
 }
 public void keyPressed()
@@ -49,7 +57,7 @@ public void keyPressed()
   {
     no.accelerate(0.5);
   }
-    if (key == 's')
+  if (key == 's')
   {
     no.accelerate(-0.5);
   }
