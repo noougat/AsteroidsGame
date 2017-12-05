@@ -24,23 +24,39 @@ public void draw()
     pew.get(i).show();
     pew.get(i).move();
   }
+    for ( int i = 0; i < pew.size(); i++) 
+  {
+      if( pew.get(i).getX() > 495 || pew.get(i).getX() < 5 || pew.get(i).getY() > 495 || pew.get(i).getY() < 5)
+    {
+    pew.remove(i);
+    break;
+    }
+  }
   no.show();
   no.move();
   for ( int i = 0; i < asteroids.size(); i++) 
   {
     asteroids.get(i).show();
     asteroids.get(i).move();
+  }
+    for ( int i = 0; i < asteroids.size(); i++) 
+  {
     if (dist(asteroids.get(i).getX(), asteroids.get(i).getY(), no.getX(), no.getY()) < 20)
-    asteroids.remove(i);
-    for( int j = 0; j < pew.size(); j++)
     {
-      if (dist(pew.get(j).getX(), pew.get(j).getY(), asteroids.get(i).getX(), asteroids.get(i).getY())< 30)
-      {
-      asteroids.remove(i);
-      pew.remove(j);
-      break;
-      }
+    asteroids.remove(i);
+    System.out.println(i + "asteroid");
+    break;
     }
+      for( int j = 0; j < pew.size(); j++)
+      {
+        if (dist(pew.get(j).getX(), pew.get(j).getY(), asteroids.get(i).getX(), asteroids.get(i).getY())< 20)
+        {
+        System.out.println(j + "bullet" + i + "asteroid");
+        asteroids.remove(i);
+        pew.remove(j);
+        break;
+        }
+      }
   }
 }
 public void keyPressed()
@@ -71,6 +87,7 @@ public void keyPressed()
   }
   if (key == ' ')
   {
+    if( pew.size() < 5 )
     pew.add(new Bullet(no));
   }
 }
