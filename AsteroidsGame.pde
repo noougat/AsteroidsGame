@@ -1,6 +1,7 @@
 //your variable declarations here
 Spaceship no = new Spaceship();
 Stars[] star = new Stars[200];
+PImage health;
 ArrayList <Bullet> pew = new ArrayList <Bullet>();
 ArrayList <Asteroid> asteroids = new ArrayList <Asteroid>();
 public void setup() 
@@ -13,6 +14,7 @@ public void setup()
   {
     asteroids.add(new Asteroid());
   }
+ health = loadImage ("heart.png");
 }
 public void draw() 
 {
@@ -58,6 +60,7 @@ public void draw()
         }
       }
   }
+  image(health,5, 5);
 }
 public void keyPressed()
 {
