@@ -1,9 +1,9 @@
 //your variable declarations here
 Spaceship no = new Spaceship();
 Stars[] star = new Stars[200];
-PImage health;
 ArrayList <Bullet> pew = new ArrayList <Bullet>();
 ArrayList <Asteroid> asteroids = new ArrayList <Asteroid>();
+ArrayList <Heart> life = new ArrayList <Heart>();
 public void setup() 
 {
   background(0);
@@ -14,11 +14,16 @@ public void setup()
   {
     asteroids.add(new Asteroid());
   }
- health = loadImage ("heart.png");
+    for ( int i = 0; i < 3; i++ )
+  {
+    life.add(new Heart(i));
+  }
 }
 public void draw() 
 {
   background(0);
+  for ( int i = 0; i < life.size(); i++ )
+    life.get(i).show();
   for ( int i = 0; i < star.length; i++)
     star[i].show();
   for ( int i = 0; i < pew.size(); i++) 
@@ -46,21 +51,20 @@ public void draw()
     if (dist(asteroids.get(i).getX(), asteroids.get(i).getY(), no.getX(), no.getY()) < 20)
     {
     asteroids.remove(i);
-    System.out.println(i + "asteroid");
+    if (life.size()>0)
+    life.remove(life.size()-1);
     break;
     }
       for( int j = 0; j < pew.size(); j++)
       {
         if (dist(pew.get(j).getX(), pew.get(j).getY(), asteroids.get(i).getX(), asteroids.get(i).getY())< 20)
         {
-        System.out.println(j + "bullet" + i + "asteroid");
         asteroids.remove(i);
         pew.remove(j);
         break;
         }
       }
   }
-  image(health,5, 5);
 }
 public void keyPressed()
 {
@@ -90,7 +94,7 @@ public void keyPressed()
   }
   if (key == ' ')
   {
-    if( pew.size() < 5 )
+    if( pew.size() < 3 )
     pew.add(new Bullet(no));
   }
 }
